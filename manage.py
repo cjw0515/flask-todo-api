@@ -9,10 +9,10 @@ from flask_script import Manager
 from app.main.model import todo
 
 from app.main import create_app, db
-# from app import blueprint
+from app import blueprint
 
 app = create_app('dev')
-# app.register_blueprint(blueprint)
+app.register_blueprint(blueprint)
 app.app_context().push()
 
 # flask_script : https://flask-script.readthedocs.io/en/latest/
