@@ -10,4 +10,4 @@ class Todo(db.Model):
     complete = db.Column(db.Boolean, nullable=False, default=False)
 
     def __repr__(self):
-        return "<User '{}'>".format(self.username)
+        return "<Todo '{}'>".format(self.todo)
