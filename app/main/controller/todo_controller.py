@@ -42,12 +42,15 @@ class Todo(Resource):
     @api.response(204, 'User successfully deleted.')
     def delete(self, id):
         delete_todo(id)
-        return '', 204
+        return {
+        'status': 'success',
+        'message': 'Successfully deleted.'
+        }, 204
 
-    @api.doc('get a todo')
+    @api.doc('modify todo')
     @api.response(201, 'User successfully updated.')
     @api.expect(_todo, validate=True)
     def put(self, id):
         data = request.json
 
-        return update_todo(id, data), 201
+        return update_todo(id, data)
